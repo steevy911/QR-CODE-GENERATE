@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="text/javascript">
+        function genQR()
+        {
+            var gapi="https://chart.googleapis.com/chart?chf=bg,s,65432100&cht=qr&chs=";
+            var myimg=document.getElementById("img");
+            var mytext=document.getElementById("qrtext").value;
+            var mysize=document.getElementById("size").value;
+
+            if (mytext!=="" && mysize=="300")
+            {
+                myimg.src=gapi+"300x300"+"&chl="+mytext;
+            }
+            else
+            {
+                alert("SVP ekri mo ou fraz ou an");
+            }
+        }
+    </script>
+    <div class="grid">
+        <h2 align="center">Qr Code Generator</h2>
+        <center><img src="" id="img"></center>
+        <select id="size">
+            <option value="300" selected>300x300</option>
+        </select>
+        <br>
+        <br>
+        <textarea placeholder="Antre sa wap ekri an epi map jenere QR CODE lan pou ou" id="qrtext"></textarea>
+        <br>
+        <br>
+        <input type="submit" value="Jenere QR CODE ou" onclick="genQR()">
+        <p>Steeve Vara ALEXIS Developpeur Informatique</p>
+    </div>
+</body>
+</html>
